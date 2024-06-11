@@ -1,4 +1,4 @@
-package config;
+package ru.bookDB.config;
 
 import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.filter.HiddenHttpMethodFilter;
