@@ -41,6 +41,11 @@ public class PersonDao {
         jdbcTemplate.update("DELETE FROM Person WHERE id = ?", id);
     }
 
+    public void update (Person person) {
+        jdbcTemplate.update("INSERT INTO Person (full_name, year_of_birth) VALUES (?, ?)",
+                person.getFullName(), person.getYearOfBirth());
+    }
+
     public Optional<Person> getPersonByFullName (String fullName){
         return jdbcTemplate.query("SELECT * FROM Person WHERE fullName = ?",
                 new Object[]{fullName}, new BeanPropertyRowMapper<>(Person.class))
