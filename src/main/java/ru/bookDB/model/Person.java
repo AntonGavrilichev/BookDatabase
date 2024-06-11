@@ -6,6 +6,9 @@ import javax.validation.constraints.Size;
 public class Person {
 
     private int id;
+
+
+
     @NotEmpty(message = "Заполните ФИО")
     @Size(max = 100, message = "ФИО не должен превышать 100 символов")
     private String fullName;
@@ -17,6 +20,14 @@ public class Person {
         this.id = id;
         this.fullName = fullName;
         this.yearOfBirth = yearOfBirth;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getFullName() {

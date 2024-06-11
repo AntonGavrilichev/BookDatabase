@@ -52,4 +52,12 @@ public class Book {
     public void setTitle(String name) {
         this.title = title;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 }
