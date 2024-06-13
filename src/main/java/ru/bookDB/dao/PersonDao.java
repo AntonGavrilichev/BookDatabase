@@ -1,6 +1,5 @@
 package ru.bookDB.dao;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -33,7 +32,7 @@ public class PersonDao {
     }
 
     public void save (Person person) {
-        jdbcTemplate.update("INSERT INTO Person (full_name, year_of_birth) VALUES (?, ?,)",
+        jdbcTemplate.update("INSERT INTO Person(full_name, year_of_birth) VALUES (?, ?)",
                 person.getFullName(), person.getYearOfBirth());
     }
 
@@ -47,13 +46,13 @@ public class PersonDao {
     }
 
     public Optional<Person> getPersonByFullName (String fullName){
-        return jdbcTemplate.query("SELECT * FROM Person WHERE fullName = ?",
+        return jdbcTemplate.query("SELECT * FROM Person WHERE full_Name = ?",
                 new Object[]{fullName}, new BeanPropertyRowMapper<>(Person.class))
                 .stream().findAny();
     }
 
     public List<Book> getBooksByPersonId (int id) {
-        return jdbcTemplate.query("SELECT * FROM Book WHERE id_person = ?", new Object[]{id},
+        return jdbcTemplate.query("SELECT * FROM Book WHERE person_id = ?", new Object[]{id},
                 new BeanPropertyRowMapper<>(Book.class));
     }
 }

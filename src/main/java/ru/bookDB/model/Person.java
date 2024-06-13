@@ -7,12 +7,10 @@ public class Person {
 
     private int id;
 
-
-
     @NotEmpty(message = "Заполните ФИО")
     @Size(max = 100, message = "ФИО не должен превышать 100 символов")
     private String fullName;
-    @NotEmpty(message = "Заполните год рождения")
+
     private int yearOfBirth;
 
     public Person() {}
